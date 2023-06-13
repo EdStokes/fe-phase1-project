@@ -1,6 +1,23 @@
-// const spaceAPI = 'https://ll.thespacedevs.com/2.2.0/expedition';
-const spacexAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
+const trivaCategory = 'https://jservice.io/api/categories?count=15';
 
-fetch(spacexAPI)
+//Elements
+const categorySelect = document.querySelector("#category");
+
+//Function calls
+getCategories()
+function getCategories() {
+    fetch(trivaCategory)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(categories => renderCategoryOptions(categories));
+}
+
+function renderCategoryOptions(categories){
+    categories.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category.title;
+        option.textContent = category.title;
+        categorySelect.append(option);
+    })
+
+}
+
