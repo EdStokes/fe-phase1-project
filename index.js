@@ -1,4 +1,5 @@
-const trivaCategory = 'https://jservice.io/api/categories?count=15';
+const categoryStart = getRandomNumber(1,85);
+const trivaCategory = `https://jservice.io/api/categories?count=15`;
 //const trivaQuestions = `https://jservice.io/api/categories?id=${selectedCategory}`
 
 //Elements
@@ -10,6 +11,10 @@ getCategories()
 //event listener
 categorySelect.addEventListener("change", getQuestionsByCategory)
 
+
+function getRandomNumber(min, max){
+    return Math.floor(Math.random() * (max - min) + min);
+}
 
 function getCategories() {
     fetch(trivaCategory)
@@ -31,6 +36,7 @@ function renderCategoryOptions(categories){
 
 function getQuestionsByCategory(e) {
     const selectedCategory = e.target.value;
+    debugger;
 
     
     fetch(`https://jservice.io/api/clues?category=${selectedCategory}`)
