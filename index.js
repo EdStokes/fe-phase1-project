@@ -13,7 +13,7 @@ getCategories()
 
 
 //event listener
-categorySelect.addEventListener("change", getQuestionsByCategory)
+// categorySelect.addEventListener("change", getQuestionsByCategory)
 
 
 function getRandomNumber(min, max) {
@@ -31,9 +31,11 @@ function renderCategoryOptions(categories) {
         if (category.clues_count >= 10) {
             const categoryCard = document.createElement('div');
             categoryCard.classList.add('cardCategory');
-            categoryCard.innerHTML = category.title;
+            categoryCard.addEventListener("click", function() {
+                getQuestionsByCategory(category.id)
+            })
+            categoryCard.innerHTML = category.title.toUpperCase();
             questionContainer.append(categoryCard)
-            console.log(category.title)
         }
     })
 
@@ -41,8 +43,9 @@ function renderCategoryOptions(categories) {
 
 
 
-function getQuestionsByCategory(e) {
-    const selectedCategory = e.target.value;
+function getQuestionsByCategory(categoryId) {
+    const selectedCategory = categoryId;
+    console.log(selectedCategory)
 
     fetch(`https://jservice.io/api/clues?category=${selectedCategory}`)
         .then(res => res.json())
@@ -57,7 +60,6 @@ function createQuestionArray(questions) {
     console.log(questionArray[0].question)
     console.log(questionArray[0].answer)
 
-    categorySelect.value = "";
     return questionArray;
 
 }
