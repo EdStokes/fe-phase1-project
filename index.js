@@ -1,5 +1,5 @@
 const categoryStart = getRandomNumber(1, 85);
-const trivaCategory = `https://jservice.io/api/categories?count=15`;
+const trivaCategory = `https://jservice.io/api/categories?count=13`;
 //const trivaQuestions = `https://jservice.io/api/categories?id=${selectedCategory}`
 
 //Elements
@@ -59,6 +59,7 @@ function renderQuestions(questions) {
     })
     const questionCard = document.createElement('div');
     const nextButton = document.createElement('button');
+    nextButton.classList.add("nextButton");
     const answerButton = document.createElement('button');
     let arrayIndex = 0;
     questionCard.classList.add('questionCard');

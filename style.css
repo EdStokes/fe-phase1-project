@@ -45,6 +45,11 @@ html {
     text-align: center;
 }
 
+.cardCategory:hover {
+    background-color:aqua;
+    transform: scale(1.2);
+}
+
 .questionCard {
     max-width: 100%;
     border: solid 1px;
@@ -53,4 +58,8 @@ html {
     cursor: pointer;
     box-shadow: 0 4px 12px black;
     border-radius: 15px;
+}
+
+.nextButton {
+    background-color: yellow;
 }
