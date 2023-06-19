@@ -2,6 +2,30 @@ html {
     background-color: blue;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: x-large;
+    text-shadow: 0 4px 12px black;
+}
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+    margin: 30px;
+}
+
+.question-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+    margin: 30px;
+}
 .card {
     max-width: 75%;
     border: solid 1px;
@@ -11,15 +35,22 @@ html {
 }
 
 .cardCategory {
-    max-width: 25%;
+    max-width: 100%;
     border: solid 1px;
     padding: 10px;
     background-color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px black;
+    border-radius: 15px;
+    text-align: center;
 }
 
 .questionCard {
-    max-width: 70%;
+    max-width: 100%;
     border: solid 1px;
     padding: 10px;
     background-color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px black;
+    border-radius: 15px;
 }
