@@ -53,9 +53,21 @@ function renderQuestions(questions) {
         questionArray.push(question);
     })
     const questionCard = document.createElement('div');
+    const nextButton = document.createElement('button');
+    let arrayIndex = 0;
     questionCard.classList.add('questionCard');
-    questionCard.innerHTML = questionArray[1].question;
-    questionContainer.append(questionCard)
+    questionCard.innerHTML = questionArray[arrayIndex].question;
+    nextButton.innerText = "Start Queststion"
+    nextButton.addEventListener('click', () => {
+        arrayIndex += 1;
+        console.log(questionArray[arrayIndex].question)
+        nextButton.innerText = "Next Question"
+        questionCard.innerHTML = questionArray[arrayIndex].question;
+        questionContainer.append(questionCard)
+    })
+   
+    //questionContainer.append(questionCard)
+    questionContainer.appendChild(nextButton);
 
 }
 
