@@ -54,6 +54,7 @@ function renderQuestions(questions) {
     })
     const questionCard = document.createElement('div');
     const nextButton = document.createElement('button');
+    const answerButton = document.createElement('button');
     let arrayIndex = 0;
     questionCard.classList.add('questionCard');
     questionCard.innerHTML = questionArray[arrayIndex].question;
@@ -64,10 +65,17 @@ function renderQuestions(questions) {
         nextButton.innerText = "Next Question"
         questionCard.innerHTML = questionArray[arrayIndex].question;
         questionContainer.append(questionCard)
+        answerButton.innerText = "Show Answer";
+        questionContainer.appendChild(answerButton);
+        answerButton.addEventListener('click', () => {
+            questionCard.innerHTML = questionArray[arrayIndex].answer;
+            questionContainer.append(questionCard);
+            
+        })
+
     })
-   
-    //questionContainer.append(questionCard)
     questionContainer.appendChild(nextButton);
+
 
 }
 
