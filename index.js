@@ -89,11 +89,13 @@ function questionCard(questions, index) {
 }
 
 function questionInfo(question) {
-    const infoCard = document.createElement('div');
+    const infoCard = document.createElement('h3');
+    let category = question[0].category.title.toUpperCase();
     infoCard.classList.add("infoCard");
-    infoCard.innerText = "category id"
-    infoCard.innerText = `Number of Question ${question.length}`;
+    infoCard.innerText = `Category: ${category}   Number of Questions: ${question.length}`;
     questionInfoElement.append(infoCard);
+    console.log(question[1].category.title)
+    console.log(question)
 }
 
 function answerCard(questions, index) {
