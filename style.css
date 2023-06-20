@@ -53,24 +53,31 @@ html {
     display: flex;
     flex-direction: row;
     align-self: center;
-    margin: auto;
+    margin-top: 3%;
+    margin-right: auto;
+    margin-left: auto;
     max-width: 100%;
     border: solid 1px;
     padding: 30px;
     background-color: white;
-    cursor: pointer;
     box-shadow: 0 4px 12px black;
     font-size: xx-large;
 }
 
 .answerCard {
-    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-content: center;
+    margin-top: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 25%;
     border: solid 1px;
-    margin-left: 20%;
-    padding: 10px;
+    padding: 30px;
     background-color: white;
-    cursor: pointer;
     box-shadow: 0 4px 12px black;
+    font-size: xx-large;
 }
 
 .infoCard {
@@ -84,5 +91,9 @@ html {
 .nextButton {
     display: inline-block;
     background-color: yellow;
+    cursor: pointer;
+}
+
+.answer {
     cursor: pointer;
 }

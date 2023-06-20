@@ -58,7 +58,6 @@ function renderQuestions(questions) {
     })
     const nextButton = document.createElement('button');
     nextButton.classList.add("nextButton");
-    const answerButton = document.createElement('button');
     let arrayIndex = 0;
     nextButton.innerText = "Start Queststion"
     questionInfoElement.appendChild(nextButton)
@@ -67,33 +66,38 @@ function renderQuestions(questions) {
         arrayIndex += 1;
         nextButton.innerText = "Next Question"
         questionCard(questionArray, arrayIndex);
-        answerButton.innerText = "Show Answer";
-        questionInfoElement.appendChild(answerButton);
-        answerButton.addEventListener('click', function() {
-            answerCard(questionArray, arrayIndex);
-        })       
     })
 }
 
 function questionCard(questions, index) {
     const questionCard = document.createElement('div');
+    const answer = document.createElement('h4');
+    answer.classList.add("answer");
+    answerContainer.replaceChildren();
     questionCard.classList.add('questionCard');
     questionCard.innerText = questions[index].question;
-    questionContainer.append(questionCard);
+    answer.innerText = "Show Answer";
+    answer.addEventListener('click', function() {
+        answerCard(questions, index);
+    })
+    questionContainer.replaceChildren();
+    questionContainer.append(questionCard)
+    questionContainer.append(answer)
 }
 
 function questionInfo(question) {
     const infoCard = document.createElement('div');
     infoCard.classList.add("infoCard");
     infoCard.innerText = "category id"
-    infoCard.innerText = `Number of Question ${question.length}`
+    infoCard.innerText = `Number of Question ${question.length}`;
     questionInfoElement.append(infoCard);
 }
 
 function answerCard(questions, index) {
-    const answerCard = document.createElement('div');
+    const answerCard = document.createElement('p');
     answerCard.classList.add('answerCard')
     answerCard.innerText = questions[index].answer;
+    answerContainer.replaceChildren();
     answerContainer.append(answerCard);
 }
 
