@@ -8,13 +8,12 @@ const categoryElement = document.querySelector(".category-container");
 const questionContainer = document.querySelector(".question-container");
 const titleElement = document.querySelector(".header")
 const categorySection = document.querySelector(".category-section");
+const questionInfoElement = document.querySelector(".question-info");
+const answerContainer = document.querySelector(".answer-container");
 
 
 //Function calls
 getCategories()
-
-
-//event listener
 
 //Title
 const title = document.createElement("h1");
@@ -57,33 +56,45 @@ function renderQuestions(questions) {
     questions.forEach(question => {
         questionArray.push(question);
     })
-    const questionCard = document.createElement('div');
     const nextButton = document.createElement('button');
     nextButton.classList.add("nextButton");
     const answerButton = document.createElement('button');
     let arrayIndex = 0;
-    questionCard.classList.add('questionCard');
-    questionCard.innerHTML = questionArray[arrayIndex].question;
     nextButton.innerText = "Start Queststion"
+    questionInfoElement.appendChild(nextButton)
+    questionInfo(questionArray, arrayIndex)
     nextButton.addEventListener('click', () => {
         arrayIndex += 1;
-        console.log(questionArray[arrayIndex].question)
         nextButton.innerText = "Next Question"
-        questionCard.innerHTML = questionArray[arrayIndex].question;
-        questionContainer.append(questionCard)
+        questionCard(questionArray, arrayIndex);
         answerButton.innerText = "Show Answer";
-        questionContainer.appendChild(answerButton);
-        answerButton.addEventListener('click', () => {
-            questionCard.innerHTML = questionArray[arrayIndex].answer;
-            questionContainer.append(questionCard);
-
-        })
-
+        questionInfoElement.appendChild(answerButton);
+        answerButton.addEventListener('click', function() {
+            answerCard(questionArray, arrayIndex);
+        })       
     })
-    questionContainer.appendChild(nextButton);
-
-
 }
 
+function questionCard(questions, index) {
+    const questionCard = document.createElement('div');
+    questionCard.classList.add('questionCard');
+    questionCard.innerText = questions[index].question;
+    questionContainer.append(questionCard);
+}
+
+function questionInfo(question) {
+    const infoCard = document.createElement('div');
+    infoCard.classList.add("infoCard");
+    infoCard.innerText = "category id"
+    infoCard.innerText = `Number of Question ${question.length}`
+    questionInfoElement.append(infoCard);
+}
+
+function answerCard(questions, index) {
+    const answerCard = document.createElement('div');
+    answerCard.classList.add('answerCard')
+    answerCard.innerText = questions[index].answer;
+    answerContainer.append(answerCard);
+}
 
 
