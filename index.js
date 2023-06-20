@@ -45,6 +45,9 @@ function renderCategoryOptions(categories) {
 }
 
 function getQuestionsByCategory(categoryId) {
+    answerContainer.replaceChildren();
+    questionContainer.replaceChildren();
+    questionInfoElement.replaceChildren();
     const selectedCategory = categoryId;
     fetch(`https://jservice.io/api/clues?category=${selectedCategory}`)
         .then(res => res.json())
