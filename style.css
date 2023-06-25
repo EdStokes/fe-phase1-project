@@ -23,7 +23,8 @@ html {
 .question-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
     
 }
 .card {
@@ -52,8 +53,9 @@ html {
 
 .question-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: gray;
+    box-shadow: 0 4px 12px black;
 }
 
 .questionCard {
@@ -104,6 +106,7 @@ html {
     border-radius: 10px;
     font-size: small;
     margin-top: 1.2%;
+    margin-left: 1%;
     height: 20%;
     cursor: pointer; 
 }
