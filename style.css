@@ -53,9 +53,11 @@ html {
 
 .question-info {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     background-color: gray;
     box-shadow: 0 4px 12px black;
+    border-radius: 15px;
 }
 
 .questionCard {
@@ -70,13 +72,17 @@ html {
     background-color: white;
     box-shadow: 0 4px 12px black;
     font-size: xx-large;
+    border-radius: 15px;
+}
+
+.answer-container {
+    display: flex;
+    text-align: center;
 }
 
 .answerCard {
     display: flex;
-    flex-direction: row;
-    align-self: center;
-    align-content: center;
+    text-align: justify;
     margin-top: 3%;
     margin-right: auto;
     margin-left: auto;
@@ -86,6 +92,7 @@ html {
     background-color: white;
     box-shadow: 0 4px 12px black;
     font-size: xx-large;
+    border-radius: 15px;
 }
 
 .nextButton {
@@ -97,6 +104,7 @@ html {
     margin-top: 1.2%;
     height: 20%;
     cursor: pointer;
+    box-shadow: 0 4px 12px black;
 }
 
 .answer {
@@ -109,4 +117,5 @@ html {
     margin-left: 1%;
     height: 20%;
     cursor: pointer; 
+    box-shadow: 0 4px 12px black;
 }

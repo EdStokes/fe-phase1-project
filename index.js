@@ -10,6 +10,7 @@ const titleElement = document.querySelector(".header")
 const categorySection = document.querySelector(".category-section");
 const questionInfoElement = document.querySelector(".question-info");
 const answerContainer = document.querySelector(".answer-container");
+const currentIndex = 0;
 
 
 //Function calls
@@ -45,10 +46,10 @@ function renderCategoryOptions(categories) {
 }
 
 function getQuestionsByCategory(categoryId) {
+    const selectedCategory = categoryId;
     answerContainer.replaceChildren();
     questionContainer.replaceChildren();
     questionInfoElement.replaceChildren();
-    const selectedCategory = categoryId;
     fetch(`https://jservice.io/api/clues?category=${selectedCategory}`)
         .then(res => res.json())
         .then(questions => renderQuestions(questions));
@@ -56,13 +57,14 @@ function getQuestionsByCategory(categoryId) {
 
 function renderQuestions(questions) {
     const questionArray = [];
+    const nextButton = document.createElement('button');
+    nextButton.classList.add("nextButton");
     questions.forEach(question => {
         questionArray.push(question);
     })
-    const nextButton = document.createElement('button');
     nextButton.classList.add("nextButton");
     let arrayIndex = 0;
-    nextButton.innerText = "Start Queststion"
+    nextButton.innerText = "Start Questions"
     questionInfoElement.appendChild(nextButton)
     questionInfo(questionArray, arrayIndex)
     nextButton.addEventListener('click', () => {
@@ -75,27 +77,35 @@ function renderQuestions(questions) {
 function questionCard(questions, index) {
     const questionCard = document.createElement('div');
     const answer = document.createElement('button');
+    const currentQuestionNumber = document.createElement('h3');
+    const replaceQuestion = questionInfoElement.children[1];
+    currentQuestionNumber.innerText =  `Current Question Number: ${index}`
     answer.classList.add("answer");
     answerContainer.replaceChildren();
     questionCard.classList.add('questionCard');
     questionCard.innerText = questions[index].question;
     answer.innerText = "Show Answer";
-    answer.addEventListener('click', function() {
+    answer.addEventListener('click', function () {
         answerCard(questions, index);
     })
     questionContainer.replaceChildren();
     questionContainer.append(questionCard)
     questionCard.append(answer)
+    questionInfoElement.append(currentQuestionNumber)
+    questionInfoElement.replaceChild(currentQuestionNumber, replaceQuestion)
 }
 
 function questionInfo(question, index) {
-    const infoCard = document.createElement('h3');
+    const categoryInfo = document.createElement('h3');
     const category = question[0].category.title.toUpperCase();
-    infoCard.classList.add("infoCard");
-    infoCard.innerText = `Category: ${category}   Number of Questions: ${question.length}`;
-    questionInfoElement.append(infoCard);
-    console.log(question[1].category.title)
-    console.log(question)
+    const currentQuestionNumber = document.createElement('h3');
+    const questionsInCategory = document.createElement('h3');
+    categoryInfo.innerText = `Category: ${category}`;
+    currentQuestionNumber.innerText = `Current Question Number: ${index}`
+    questionsInCategory.innerText = `Number of Questions to Answer: ${question.length - 1}`
+    questionInfoElement.append(currentQuestionNumber)
+    questionInfoElement.append(questionsInCategory)
+    questionInfoElement.append(categoryInfo)
 }
 
 function answerCard(questions, index) {
