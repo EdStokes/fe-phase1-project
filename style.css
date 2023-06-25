@@ -23,6 +23,7 @@ html {
 .question-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     
 }
 .card {
@@ -49,9 +50,14 @@ html {
     transform: scale(1.2);
 }
 
+.question-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+}
+
 .questionCard {
     display: flex;
-    flex-direction: row;
     align-self: center;
     margin-top: 3%;
     margin-right: auto;
@@ -80,20 +86,24 @@ html {
     font-size: xx-large;
 }
 
-.infoCard {
-    max-width: 100%;
-    border: solid 1px;
-    padding: 10px;
-    background-color: gray;
-    box-shadow: 0 4px 12px black;
-}
-
 .nextButton {
-    display: inline-block;
     background-color: yellow;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: small;
+    margin-top: 1.2%;
+    height: 20%;
     cursor: pointer;
 }
 
 .answer {
-    cursor: pointer;
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: small;
+    margin-top: 1.2%;
+    height: 20%;
+    cursor: pointer; 
 }

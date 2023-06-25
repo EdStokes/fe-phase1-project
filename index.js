@@ -74,7 +74,7 @@ function renderQuestions(questions) {
 
 function questionCard(questions, index) {
     const questionCard = document.createElement('div');
-    const answer = document.createElement('h4');
+    const answer = document.createElement('button');
     answer.classList.add("answer");
     answerContainer.replaceChildren();
     questionCard.classList.add('questionCard');
@@ -85,12 +85,12 @@ function questionCard(questions, index) {
     })
     questionContainer.replaceChildren();
     questionContainer.append(questionCard)
-    questionContainer.append(answer)
+    questionCard.append(answer)
 }
 
-function questionInfo(question) {
+function questionInfo(question, index) {
     const infoCard = document.createElement('h3');
-    let category = question[0].category.title.toUpperCase();
+    const category = question[0].category.title.toUpperCase();
     infoCard.classList.add("infoCard");
     infoCard.innerText = `Category: ${category}   Number of Questions: ${question.length}`;
     questionInfoElement.append(infoCard);
