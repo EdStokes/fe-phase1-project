@@ -1,6 +1,5 @@
-const categoryStart = getRandomNumber(1, 85);
+
 const trivaCategory = `https://jservice.io/api/categories?count=13`;
-//const trivaQuestions = `https://jservice.io/api/categories?id=${selectedCategory}`
 
 //Elements
 const categorySelect = document.querySelector("#category");
@@ -10,8 +9,6 @@ const titleElement = document.querySelector(".header")
 const categorySection = document.querySelector(".category-section");
 const questionInfoElement = document.querySelector(".question-info");
 const answerContainer = document.querySelector(".answer-container");
-const currentIndex = 0;
-
 
 //Function calls
 getCategories()
@@ -20,10 +17,6 @@ getCategories()
 const title = document.createElement("h1");
 title.textContent = "Triva";
 titleElement.append(title);
-
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
 
 function getCategories() {
     fetch(trivaCategory)
