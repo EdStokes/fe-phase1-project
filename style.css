@@ -31,6 +31,7 @@ html {
     max-width: 75%;
     border: solid 1px;
     margin: 20px;
+    margin-bottom: 0;
     padding: 10px;
     background-color: white;
 }
@@ -83,7 +84,7 @@ html {
 .answerCard {
     display: flex;
     text-align: justify;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-right: auto;
     margin-left: auto;
     max-width: 25%;
