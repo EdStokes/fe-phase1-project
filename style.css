@@ -9,6 +9,7 @@ html {
     color: yellow;
     font-size: xx-large;
     text-shadow: 0 6px 12px black;
+    margin-bottom: 0;
     
 }
 
@@ -72,7 +73,7 @@ html {
     padding: 30px;
     background-color: white;
     box-shadow: 0 4px 12px black;
-    font-size: xx-large;
+    font-size: x-large;
     border-radius: 15px;
 }
 
