@@ -83,7 +83,7 @@ function questionCard(questions, index) {
     questionCard.classList.add('questionCard');
     questionCard.innerText = questions[index].question;
     answer.innerText = "Show Answer";
-    answer.addEventListener('click', function () {
+    answer.addEventListener('mouseover', function () {
         answerCard(questions, index);
     })
     questionContainer.replaceChildren();
