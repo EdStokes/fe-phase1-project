@@ -15,7 +15,7 @@ getCategories()
 
 //Title
 const title = document.createElement("h1");
-title.textContent = "Triva";
+title.textContent = "Trivia";
 titleElement.append(title);
 
 // get the categories form the API
